@@ -23,7 +23,6 @@
 		}
 	}
 
-	/* output in necessary format */
 	if($format == 'json') {
 		header('Content-type: application/json');
 		echo json_encode(array('posts'=>$posts));

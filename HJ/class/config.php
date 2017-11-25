@@ -17,10 +17,6 @@ define ('MACC' ,"skingned6665@gmail.com");//設定驗證帳號
 define ('MPWD' ,"Sking@ned");//設定驗證密碼
 
 
-/*define ('NOTE' ,1);//模組
-define ('NOTEA' ,1);//模組
-define ('NOTEB' ,1);//模組*/
-//define ('NOTEC' ,1);//模組
 //*****************路徑****************************
 define ('APP_REAL_PATH' ,dirname(dirname(__FILE__)));//自動取得網站路徑
 //echo gethostname()."<br>";
@@ -30,11 +26,7 @@ switch (gethostname()){
 		define ('DB_PASS','!QAZ1qaz');		
 		define ('MAPKEY' ,"AIzaSyBBXHUUOD1cSwsHzXcCxNLwkLLVX0PHB8I");
 	break;
-	case "FFIT":
-		define ('DB_USER','root');
-		define ('DB_PASS','Vac@lulala');		
-		define ('MAPKEY' ,"AIzaSyAAsffnUQ3lD6JHzKSy_Rq_qGp-BYa1qnM");
-	break;
+
 	default:
 		define ('DB_USER','root');
 		define ('DB_PASS','Vac@lulala');		
@@ -69,11 +61,8 @@ define ('VIEWBTN','預覽(PC/Mobile)');
 define ('OKBTN','確定');
 define ('NGBTN','取消');
 define ('DELBTN','刪除');
-define ('ORDERMAX',300);//排序上限值
-	/* connect to the db */
-	//define("DBNAME",'govs');
+define ('ORDERMAX',300);//排序上限值	
 	$link = mysql_connect(DB_HOST,DB_USER,DB_PASS) or die('Cannot connect to the DB');
 	mysql_query("SET NAMES UTF8");
 	mysql_select_db(DB_NAME,$link) or die('Cannot select the DB');
-
 ?>

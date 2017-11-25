@@ -42,6 +42,10 @@
 		td{
 		color:black;
 		}
+		td{
+		color:blue;
+		
+		}
 		</style>
 	{/literal}
 </head>
@@ -80,7 +84,7 @@
 			 1.沒有任何公車站的景點<BR>
 			 <table>
 			 {section name=h loop=$SSCF}
-					<tr><th>{$smarty.section.h.index+1}</th>
+					<tr><th><b>{$smarty.section.h.index+1}</b></th>
 				{section name=x loop=$SSCF[h]}	
 					<td>{$SSCF[h][x]}</td>
 				{/section}
@@ -92,7 +96,7 @@
 			 2.沒有任何公車站的餐廳<BR>
 			 <table>
 			 {section name=h loop=$SSRF}
-					<tr><th>{$smarty.section.h.index+1}</th>
+					<tr><th><b>{$smarty.section.h.index+1}</b></th>
 				{section name=x loop=$SSRF[h]}	
 					<td>{$SSRF[h][x]}</td>
 				{/section}
@@ -106,7 +110,7 @@
 			 
 			 <table>
 			 {section name=h loop=$SSHF}
-					<tr><th>{$smarty.section.h.index+1}</th>
+					<tr><th><b>{$smarty.section.h.index+1}</b></th>
 				{section name=x loop=$SSHF[h]}	
 					<td>{$SSHF[h][x]}</td>
 				{/section}

@@ -8,7 +8,7 @@
 	$number_of_posts = isset($_GET['num']) ? intval($_GET['num']) : 10; //10 is the default
 	$format = strtolower($_GET['format']) == 'xml' ? 'xml' : 'json'; //json is the default
 	//$user_id = intval($_GET['store_id']); //no default
-	/* connect to the db */	
+
 	include_once "config/config.php";
 	
 	$query = "SELECT id ,`地址` as officeadress FROM $tablename WHERE lng='' and lat='' and `地址` <> '' ORDER BY id asc LIMIT $number_of_posts";

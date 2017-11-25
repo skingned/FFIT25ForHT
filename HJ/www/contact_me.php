@@ -33,7 +33,7 @@ include_once("../class/PHPMailer/PHPMailerAutoload.php");
 	$mail->IsSMTP(); //設定使用SMTP方式寄信  
 	$mail->SMTPAuth = true; //設定SMTP需要驗證        
 	$mail->Username = "skingned6665@gmail.com"; //設定驗證帳號      <==設定部分請教  
-	$mail->Password = "Ned@sking"; //設定驗證密碼      
+	$mail->Password = "xxx"; //設定驗證密碼      
 	$mail->SMTPSecure = "ssl"; // Gmail的SMTP主機需要使用SSL連線   
 	$mail->Host = "smtp.gmail.com"; //Gamil的SMTP主機        
 	$mail->Port = 465;  //Gamil的SMTP主機的SMTP埠位為465埠。        

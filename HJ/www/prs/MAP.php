@@ -20,18 +20,14 @@
 		$template->assign('SSRF',$rows);//Category('qatype',$mdb2));//下拉選單
 
 		//旅館 *還沒
-		$query="SELECT sno,id,name,py,px,`Add` FROM od_ssrf where bus=0 and `Add` like '%新竹%'";
-		//echo "$query<br>";
-		$res=MDB2_query($mdb2 ,$query);
+		//$query="SELECT sno,id,name,py,px,`Add` FROM od_ssrf where bus=0 and `Add` like '%新竹%'";
+			$MySql_query.=" select sno,F1 as id,`旅館名稱` as name,lng  ,lat ,`地址` as addr FROM od_scht"; 
+			$MySql_query.=" union select sno,`序號` as id,`旅館名稱` as name,`緯度` as lat,`經度` as lng,`營業地址` as addr FROM od_ssht "; 
+		//	echo $MySql_query;
+		$res=MDB2_query($mdb2 ,$MySql_query);
 		$rows=$res->fetchAll();
-		//var_dump($rows);
+		
 		$template->assign('SSHF',$rows);//Category('qatype',$mdb2));//下拉選單
-
-
-
-
-
-
 
 
 		/*	

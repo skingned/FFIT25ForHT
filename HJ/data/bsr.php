@@ -22,7 +22,6 @@ if (!empty($_GET)){
 				$mygArray[]=$row["RouteUID"];
 		}
 	}	
-	//var_dump($mygArray);
 	foreach($mygArray as $k=>$r){
 	$MySql_query="SELECT lat,lng FROM od_bsrs where RouteUID='$r' order by sno asc";// limit 0,1";
 	$result = $mysqli->query($MySql_query);
@@ -30,18 +29,7 @@ if (!empty($_GET)){
 		$line .= "[".$row['lat'].",".$row['lng']."],";
 	}
 	$myArray[]=array("line"=>"[".substr($line,0,-1)."]");
-	//$myArray[]=array("line"=>substr($line,0,-1));
-	}
-/*	
-	
-	$MySql_query="select id,Py as lat,Px as lng ,'../images/icon/shintoshrine.png' as icon,name as title,`Add` as addr ,Toldescribe  as content  from od_bsrs
-				  where `Add` like '%新竹%'";
-//	echo "$MySql_query<br>";
-	if ($result = $mysqli->query($MySql_query)) {
-		while($row = $result->fetch_array(MYSQL_ASSOC)) {
-				$myArray[] = $row;
-		}
-	*/	
+
 	echo json_encode(array("markers" =>$myArray));
 	//}
 	$result->close();	

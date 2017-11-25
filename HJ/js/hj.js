@@ -9,7 +9,6 @@
 	  zoomControl : true,
 	});	
 	//map.setCenter(lat, lng);
-	
 		//景點
 		$("#button1id").click(function(){
 			$.getJSON( '../data/SSCF.php',"Type=all"

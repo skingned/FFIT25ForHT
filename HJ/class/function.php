@@ -34,7 +34,7 @@ function MDB2_query($mdb2,$query){
 	}else{
 		return $res;
 	}
-	
+
 }
 //=====login=======
 //檢查帳號密碼,並傳回資訊
@@ -290,7 +290,6 @@ function GetPageInfo($POWER,$MODEL,$id,$mdb2){
 
 //ajax無法正常轉址(轉址前已有輸出)// if output_buffering disable headr function is not work
 function header_c($url,$msg=''){
-	//var_dump(ini_get('output_buffering'));
 	/*if (ini_get('output_buffering')==''){
 		 echo "<Script> window.location = '".$url."';</script>";
 	}else{*/

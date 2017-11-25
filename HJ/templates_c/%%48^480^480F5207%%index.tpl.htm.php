@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.26, created on 2017-11-25 00:01:26
+<?php /* Smarty version 2.6.26, created on 2017-11-25 10:27:09
          compiled from ../tpl/index.tpl.htm */ ?>
 <!doctype html>
 
@@ -45,6 +45,10 @@
 		}
 		td{
 		color:black;
+		}
+		td{
+		color:blue;
+		
 		}
 		</style>
 	'; ?>
@@ -109,8 +113,8 @@ $this->_sections['h']['index_next'] = $this->_sections['h']['index'] + $this->_s
 $this->_sections['h']['first']      = ($this->_sections['h']['iteration'] == 1);
 $this->_sections['h']['last']       = ($this->_sections['h']['iteration'] == $this->_sections['h']['total']);
 ?>
-					<tr><th><?php echo $this->_sections['h']['index']+1; ?>
-</th>
+					<tr><th><b><?php echo $this->_sections['h']['index']+1; ?>
+</b></th>
 				<?php unset($this->_sections['x']);
 $this->_sections['x']['name'] = 'x';
 $this->_sections['x']['loop'] = is_array($_loop=$this->_tpl_vars['SSCF'][$this->_sections['h']['index']]) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -169,8 +173,8 @@ $this->_sections['h']['index_next'] = $this->_sections['h']['index'] + $this->_s
 $this->_sections['h']['first']      = ($this->_sections['h']['iteration'] == 1);
 $this->_sections['h']['last']       = ($this->_sections['h']['iteration'] == $this->_sections['h']['total']);
 ?>
-					<tr><th><?php echo $this->_sections['h']['index']+1; ?>
-</th>
+					<tr><th><b><?php echo $this->_sections['h']['index']+1; ?>
+</b></th>
 				<?php unset($this->_sections['x']);
 $this->_sections['x']['name'] = 'x';
 $this->_sections['x']['loop'] = is_array($_loop=$this->_tpl_vars['SSRF'][$this->_sections['h']['index']]) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
@@ -231,8 +235,8 @@ $this->_sections['h']['index_next'] = $this->_sections['h']['index'] + $this->_s
 $this->_sections['h']['first']      = ($this->_sections['h']['iteration'] == 1);
 $this->_sections['h']['last']       = ($this->_sections['h']['iteration'] == $this->_sections['h']['total']);
 ?>
-					<tr><th><?php echo $this->_sections['h']['index']+1; ?>
-</th>
+					<tr><th><b><?php echo $this->_sections['h']['index']+1; ?>
+</b></th>
 				<?php unset($this->_sections['x']);
 $this->_sections['x']['name'] = 'x';
 $this->_sections['x']['loop'] = is_array($_loop=$this->_tpl_vars['SSHF'][$this->_sections['h']['index']]) ? count($_loop) : max(0, (int)$_loop); unset($_loop);

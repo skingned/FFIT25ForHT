@@ -10,10 +10,8 @@
 <input type="button" id="ipt2" value="Get latlng" />-->
    <script type="text/javascript">
    $(document).ready(function () {          
-         //$('#ipt1').click(function () {		
               var JData = GetInfo();
 			  var i = 0;
-			//這裡改用.each這個函式來取出JData裡的物件
 				$.each(JData, function() {
 				
 				$("#JSON_table").append("<tr class='tra'>" +
@@ -23,11 +21,7 @@
 						"</tr>");
 				i++;
 				});
-            //});
-		/* $('#ipt2').click(function () {
-			setTimeout(addr2latlng, 1000);
-		 });*/
-		 var ct=0; //check 座標為0之連續次數		 
+         var ct=0; //check 座標為0之連續次數		 
 	    var addr2latlng= function(){
 			var v=$(".tra:first");//第一個元素
 			 	if (v.find('.lat').val()==""){

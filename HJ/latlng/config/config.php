@@ -1,6 +1,5 @@
 <?php
 	/* connect to the db */
-	//$link = mysql_connect('localhost','root','sking@168') or die('Cannot connect to the DB');
 	define ('DB_HOST','localhost');
 	define ('DB_USER','root');
 	define ('DB_PASS','!QAZ1qaz');

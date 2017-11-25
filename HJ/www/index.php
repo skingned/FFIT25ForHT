@@ -17,7 +17,7 @@ if ($_SESSION["DEMO"] !="SKING"){
 }
 
 //no login pass ,Redirection to login
-//var_dump($_SESSION);
+
 /*if ( $_SESSION['SYS']['err']!="0") //登入異常,回登入頁面
 	header_c('login.php',NOLOGIN);*/
 //==sql injection=====
