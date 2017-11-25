@@ -1,0 +1,222 @@
+//代碼整合
+update shelter as s
+left join city_town_vill as c
+on 
+	s.county=c.city and s.town=c.town and s.village=c.vill
+set s.c_t_v_id=c.id
+where s.c_t_v_id=0
+
+SELECT * FROM `shelter` where c_t_v_id=0 and town like '%區' and village not like '%里'
+
+SELECT * FROM `city_town_vill` WHERE `town`='斗六市'
+
+SELECT town,GROUP_CONCAT(vill) as villx FROM `city_town_vill` WHERE `town`='中和區' and city='新北市'
+
+
+
+update od_cand as s
+left join city_town_vill as c
+on 
+	s.cityname=c.city and s.townname=c.town and s.villname=c.vill
+set s.c_t_v_id=c.id
+
+
+
+
+
+UPDATE `od_firebbigade`  as a
+left join (select DISTINCT zipcode,city,town from city_town_vill) as b 
+on a.city=b.city and a.town=b.town
+
+SET a.`zipcode`=b.zipcode
+where a.zipcode=0
+
+
+UPDATE `od_flow_video` as f
+left join city_town_vill as c 
+on f.`縣市`=c.city and f.`行政區`=c.town
+set 
+f.zipcode=c.zipcode
+
+update od_flow_video set `縣市`=replace(`縣市`,'台','臺') ;//取代文字
+中和區 中和區
+update od_flow_video set address=replace(address,'中和區 中和區','中和區') ;//取代文字
+
+UPDATE `od_cand` as c 
+left join od_ntp_shelter as n 
+on c.cityname="新北市" and c.townname=n.Area and c.villname=n.Village
+set c.shelter_link=n.Link
+
+
+ 
+UPDATE `od_cand` SET lat='',lng='' where lat='0'
+
+//這樣效能太差,建議分開查
+select s.*,ca.idname,ca.posiname,ca.officeadress,ca.officetelphone,cp.org,cp.address,cp.tel,f.name,f.address,f.tel from city_town_vill as m 
+left join shelter as s
+on s.c_t_v_id=m.id
+left join od_cand as ca 
+on m.id=ca.c_t_v_id
+left join od_caps as cp
+on m.zipcode=cp.zipcode
+left join od_firebbigade as f
+on m.zipcode=f.zipcode
+
+
+
+
+SELECT * FROM `shelter` WHERE length(village)>9
+update shelter set `village`=replace(`village`,'.','') 
+
+
+SELECT * FROM `city_town_vill` where vill like '石[%里'
+
+SELECT * FROM `shelter` where village like '石%' ORDER BY `village` DESC
+
+𥕢
+&#152930;
+上廿下那 <=
+
+SELECT * FROM `od_list` where name_t like '%醫院%清%'
+
+
+UPDATE
+    shelter AS a
+    INNER JOIN od_shelter4 AS b
+ON a.shelterCode = b.shelterCode
+SET
+    a.管理人 = b.管理人,
+   a.管理人電話 = b.管理人電話,
+   a.聯絡人=b.聯絡人,
+a.聯絡電話=b.聯絡電話
+
+UPDATE `od_response_center` as rc left join od_firebbigade as f on substr(rc.addr,1,6)=CONCAT (f.city,f.town) SET rc.`zipcode`=f.zipcode
+
+５
+
+update od_flw set `縣市`=replace(`縣市`,'台','臺') ;//取代文字
+update `od_park` SET address=replace(address,'楊梅區楊梅區','楊梅區')
+
+update `od_hspt` SET address=replace(address,'高雄市鼓山區高雄市鼓山區','高雄市鼓山區');
+update `od_park` SET address=replace(address,'桃園市大溪區桃園市大溪區','桃園市大溪區');
+update `od_park` SET address=replace(address,'龍潭區龍潭區','龍潭區');
+
+桃園市龍潭區龍潭區上林
+UPDATE od_flw as f left join city_town_vill as s on f.County=s.city and f.Town=s.town and f.Vill=s.vill SET f.c_t_v_id=s.id where f.c_t_v_id=0
+
+
+update od_flw set vill=replace(vill,'村','里') where county='桃園市' ;//取代文字
+
+update od_hspt set address=replace(address,'１','1');
+update od_hspt set address=replace(address,'２','2');
+update od_hspt set address=replace(address,'３','3');
+update od_hspt set address=replace(address,'４','4');
+update od_hspt set address=replace(address,'５','5');
+update od_hspt set address=replace(address,'６','6');
+update od_hspt set address=replace(address,'７','7');
+update od_hspt set address=replace(address,'８','8');
+update od_hspt set address=replace(address,'９','9');
+update od_hspt set address=replace(address,'０','0');
+update od_hspt set address=replace(address,'&amp;','&');
+
+
+INSERT INTO  name,hcode,zipcode,address od_hspt_t
+SELECT DISTINCT name,hcode,zipcode,address FROM od_hspt
+
+
+SELECT * FROM `od_list` WHERE name_t NOT LIKE '%決算%' AND name_t NOT LIKE '%預算%' AND name_t NOT LIKE '%報告%'
+
+update od_school as a 
+left join (select id,substr(address,6) as zip  from od_school) as b
+on a.id= b.id
+set a.address=b.zip
+where a.zipcode=""
+
+UPDATE `shelter` as a
+left join od_shelter4 as o
+on o.shelterCode=a.shelterCode
+SET a.admin=o.admin,a.admin_tel=o.admin_tel,a.contant=o.contant,a.contant_tel=o.contant_tel
+
+UPDATE `shelter` as a
+left join od_shelter5 as o
+on o.收容場所名稱=a.name
+SET a.`admin`=o.admin,a.`admin_tel`=o.admin_tel
+
+UPDATE `shelter` as a
+left join od_shelter3 as o
+on o.name=a.name
+SET a.`admin_tel`=o.admin_tel
+where a.county='桃園市'
+
+
+UPDATE `od_caps` as c left join od_sh as s on c.name=s.name SET c.`sh`='y' where c.name=s.name
+
+UPDATE `shelter` as a
+right join `od_shelter5` as o
+on 
+	o.`收容場所名稱`=a.name
+SET 
+	a.`管理人`=o.`管理人姓名`,
+	a.`管理人電話`=o.`聯絡電話`
+
+SELECT * FROM `od_list` where name_t like '%公園%' and name_t not like '%國家公園%' and name_t not like '%新北市公園%' 
+
+SELECT * FROM `shelter` AS S INNER JOIN (SELECT `floor`,`shelterCode` FROM `od_shelter2` ) AS X ON S.shelterCode=X.shelterCode
+
+
+
+UPDATE
+    shelter AS a
+    INNER JOIN od_shelter4 AS b
+ON a.shelterCode = b.shelterCode
+SET
+    a.管理人 = b.管理人,
+   a.管理人電話 = b.管理人電話,
+   a.聯絡人=b.聯絡人,
+a.聯絡電話=b.聯絡電話
+
+http://localhost:82/map/data/ongo.php?sn=og-124025221
+http://localhost:82/map/data/ongo.php?sn=og-124025221&st=3
+http://localhost:82/map/data/ongo.php?sn=og-124025221&g=1
+
+
+INSERT INTO `od_park_mapping`( `town`, `公園綠地名稱`, `公園地址`) 
+select '南投縣' as town, `公園綠地名稱`, `公園地址` from `table 56` ;
+DROP TABLE `table 56` ;
+
+INSERT INTO `od_fire_hydrant`( city,remake,fh_id,my_fh_id,fh_type,address,lng,lat) 
+select city,remake,DGNID,UFID,fh_type,address,lng,lat from `table 53` ;
+	
+
+
+UPDATE `od_park` as a
+left join od_park_mapping as b on trim(a.name)=trim(b.name)
+SET a.`公園地址`=b.address, a.`town`=b.town,a.`p_id`=b.id
+
+update `od_park_mapping` SET address=replace(address,'南投縣南投縣','南投縣')
+
+
+insert into `od_park` (name,area,address,p_id)
+select name,town,address,id from od_park_mapping
+
+
+//接到查詢條件上
+關鍵字查詢地標
+http://egis.moea.gov.tw/MoeaEGFxData_WebAPI_Inside/InnoServe/LandMark?resptype=GeoJson&keyword=%E6%96%B0%E5%BA%97
+關鍵字查詢工廠清冊
+http://egis.moea.gov.tw/MoeaEGFxData_WebAPI_Inside/InnoServe/Factory?resptype=GeoJson&county=%E5%BD%B0%E5%8C%96%E7%B8%A3&town=%E7%A7%80%E6%B0%B4%E9%84%89&village=%E5%AE%89%E6%BA%AA%E6%9D%91&keyword=%E7%A7%91%E6%8A%80
+關鍵字查詢商家清冊
+http://egis.moea.gov.tw/MoeaEGFxData_WebAPI_Inside/InnoServe/BusinessBUSM?resptype=GeoJson&county=%E5%BD%B0%E5%8C%96%E7%B8%A3&town=%E7%A7%80%E6%B0%B4%E9%84%89&village=%E5%AE%89%E6%BA%AA%E6%9D%91&keyword=%E7%A7%91%E6%8A%80
+關鍵字查詢公司清冊
+http://egis.moea.gov.tw/MoeaEGFxData_WebAPI_Inside/InnoServe/BusinessCMPY?resptype=GeoJson&county=%E5%BD%B0%E5%8C%96%E7%B8%A3&town=%E7%A7%80%E6%B0%B4%E9%84%89&village=%E5%AE%89%E6%BA%AA%E6%9D%91&keyword=%E7%A7%91%E6%8A%80
+
+
+
+//fire hydrant 消防栓
+
+
+
+
+//套圖
+便利商店位置分布圖
+http://maps.moea.gov.tw/moeagis/services/EGIS_Basic/MapServer/WMSServer?request=GetMap&SERVICE=WMS&LAYERS=CVstores&CRS=EPSG:3826&FORMAT=image/png&BBOX=154058,2410347,386886,2809213&WIDTH=800&HEIGHT=1000&styles=&version=1.3.0

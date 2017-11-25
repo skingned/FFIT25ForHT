@@ -1,0 +1,167 @@
+<!doctype html>
+
+<!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en-gb" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--[if lt IE 9]> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title>{$COMPANY} - {$SYSNAME}</title>
+    <meta name="description" content="">
+    <meta name="author" content="ffit.com">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lte IE 8]>
+		<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+	<!-- Map Icons -->
+	<!--<link rel="stylesheet" type="text/css" href="../bower_components/map-icons/dist/css/map-icons.min.css">-->
+    <!-- Owl Carousel Assets -->
+    <link rel="stylesheet" href="../css/styles.css" />
+	{literal}
+		<style>
+		.btn{
+		width:100px;
+		margin:6px;
+		}
+		.btn img{
+			width:24px;
+		}
+		#infox h3{
+		color:blue;
+		}
+		td{
+		color:black;
+		}
+		</style>
+	{/literal}
+</head>
+<body>
+	<div class="row">
+		<div class="form-group">
+			<h2>{$SYSNAME}</h2>
+			<button id="button0id" name="button0id" class="btn btn-default"><img src="../images/icon/busstop.png" />站牌</button>
+			<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			<button id="button1id" name="button1id" class="btn btn-warning"><img src="../images/icon/shintoshrine.png" />景點</button>
+			<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			<button id="button2id" name="button2id" class="btn btn-success"><img src="../images/icon/party-2.png" />活動</button>
+			<button id="button3id" name="button3id" class="btn btn-success"><img src="../images/icon/restaurant1.png" />餐廳</button>
+			<button id="button4id" name="button4id" class="btn btn-success"><img src="../images/icon/hostel_0star.png" />旅館</button>
+			<button id="button6id" name="button6id" class="btn btn-success"><img src="../images/icon/wifi.png" />WIFI</button>
+			<button id="button7id" name="button7id" class="btn btn-success"><img src="../images/icon/car.png" />車禍</button>
+			<button id="button5id" name="button5id" class="btn btn-danger">Clear</button>
+		</div>
+	</div>
+   <div class="row" style="background-color:white">
+	
+		<!--map-->
+			<div id="map_area"  style="width: 100%">
+			<div id="map_canvas" class="map" style="align-content: center;">map</div>				
+			</div>  			
+		<!--/map-->		
+			<div id="setinfo" style="widht:100%;background-color:#D0F5A9">
+			<h1>目標:  增加旅遊深度 方便規劃路線 節省交通費用</h1>
+			<h2>分析假設及方法說明</h2>
+			假設:使用者以公車路線為旅遊路線<br>
+			使用者以特定景點為目標,以公車為旅遊路線,提供路線上的其它景點資訊<br>
+			
+			經緯度  1度=約 111公里<br>
+			用半徑0.005找出座標落在站牌 週邊  1公里正方 的資訊,加以註記,發現<BR>
+			
+			 1.沒有任何公車站的景點<BR>
+			 <table>
+			 {section name=h loop=$SSCF}
+					<tr><th>{$smarty.section.h.index+1}</th>
+				{section name=x loop=$SSCF[h]}	
+					<td>{$SSCF[h][x]}</td>
+				{/section}
+					</tr>
+			 {/section}
+			 </table>
+			 .....<Br>
+			 
+			 2.沒有任何公車站的餐廳<BR>
+			 <table>
+			 {section name=h loop=$SSRF}
+					<tr><th>{$smarty.section.h.index+1}</th>
+				{section name=x loop=$SSRF[h]}	
+					<td>{$SSRF[h][x]}</td>
+				{/section}
+					</tr>
+			 {/section}
+			 </table>
+			 
+			 .....<Br>
+			 
+			 3.沒有任何公車站的旅館<BR>
+			 
+			 <table>
+			 {section name=h loop=$SSHF}
+					<tr><th>{$smarty.section.h.index+1}</th>
+				{section name=x loop=$SSHF[h]}	
+					<td>{$SSHF[h][x]}</td>
+				{/section}
+					</tr>
+			 {/section}
+			 </table>
+			 
+			 
+			 .....<Br>
+			
+		
+			<div id="infox" style="widht:100%;background-color:#F2F5A9">
+			<h2>發現問題</h2>
+				<h3>旅客的交通替代方案?</h3>
+				<h3>有無必要對以上這些景點進行協助?</h3>
+				<h3>增加這些站牌能產生有多少效率?</h3>
+				<h3>業者有無自行改善的方法?</h3>
+				<p>共乘,自行設點?</p>
+				
+			<h2>資料用途及效益</h2>
+				<ul>
+					<li><h3>"政府單位":進行路線及人數管制,(如陽明山花季公車)</h3></li>				
+					<li><h3>"旅客":推廣公車旅遊(*遊輪式公車),取代自行開車,=>減少 塞車,停車,空污,交通安全 問題</h3></li>
+					<li><h3>       增加旅遊深度,方便規劃路線,節省交通費用</h3></li>
+					<li><h3>"景點"業者可分析改善交通便利性,增加回客率及營收</h3></li>
+					<li><h3>"公車"業者可分析改善交通路線,增加載客率,提升服務品質</h3></li>
+				</ul>
+			</div>		
+			</div>		
+			<!--</div>-->
+		</div>	<!--/.-->
+    </div>
+	<!--/news-->
+		<div class="result"></div>
+	</div>
+
+    <!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
+	<script type="text/javascript" src="https://maps.google.com/maps/api/js?key={$MAPKEY}"></script>
+	
+
+	<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>  
+
+	
+	<script type="text/javascript" src="../js/gmaps.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js" ></script>
+    <script src="../js/hj.js"></script>	
+	
+{literal}
+    <script type="text/javascript">
+	/*$(function(){
+	
+	});*/
+    </script>
+	
+	
+	{/literal}
+</body>
+</html>

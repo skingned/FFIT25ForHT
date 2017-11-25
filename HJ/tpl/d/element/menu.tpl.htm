@@ -1,0 +1,27 @@
+        <div class="container"	style="margin-left:10px;">
+            <nav class="navbar navbar-inverse" role="navigation">				
+                <div class="navbar-header" >	
+					<img id="logo_img" src="../images/logo.png" alt="{$SYSNAME}" title="{$SYSNAME}" style="float:left;" />
+					<a href="#" class="navbar-brand scroll-top logo"><b>{$SYSNAME}</b></a>
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" id="mainNav" >
+						{section name=a loop=$MENU}						
+                        <li {if $MODE_NAME==$MENU[a][11]} class="active"	{/if}><a href="{if $MENU[a][0]=='U'}{$MENU[a][7]}{else}index.php?mode={$MENU[a][11]} {/if}" alt="{$MENU[a][1]}" class="scroll-link">{$MENU[a][5]} {$MENU[a][2]}</a></li>
+						{/section}
+						<li style="margin-left:50px;margin-top:6px;width:120px"><div class="fb-like" data-href="https://sking.myqnapclound.com/MAP/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div></li>
+					</ul>	
+					
+                </div>
+                <!--/.navbar-collapse-->
+				
+            </nav> <!--/.navbar-->
+        </div> <!--/.container-->

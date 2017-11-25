@@ -1,0 +1,80 @@
+<section  style="margin-top:70px;" >
+	<div class="row">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				&nbsp;<div style="float:left;width:260px;margin-left:24px"><i class="fa fa-group"> </i> <b>店家註冊</b></div><div style="float:left;width:78%"><marquee style="margin-top:-10px;width:100%" align="top" id="web_marquee" >這裡放要跑的文字</marquee></div>					
+			</div>
+			<!-- .panel-heading -->
+			<div class="panel-body">
+			
+				<div style="margin-left:20px">
+				<div class="panel panel-info">					
+                        <div class="panel-heading">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#webfilter"><i class="fa fa-search"></i> 店家註冊</a><button id="location" name="location" class="btn btn-success" style="float:right;margin-right:10px;"><i class="fa fa-map-marker"></i> 目前位置</button>
+                        </div>
+						 <div id="webfilter" class="panel-collapse collapse in panel-body" >
+						 <div class="col-md-12">
+						 <p>回報說明:</p>
+						 </div>
+						 <hr>
+						 <form action="../data/marker.php" method="POST" >	
+						 <div >
+							<div class="form-group col-md-12">
+							  <label class="col-md-4 control-label" for="storename">商店名稱</label>  
+							  <div class="col-md-8">
+							  <input id="storename" name="storename" type="text" placeholder="商店名稱" class="form-control input-md">
+							  </div>
+							</div>
+							<div class="form-group col-md-12">
+							  <label class="col-md-4 control-label" for="storeid">統一編號</label>  
+							  <div class="col-md-8">
+							  <input id="storeid" name="storeid" type="text" placeholder="統一編號" class="form-control input-md">
+							  </div>
+							</div>
+						 	<div class="form-group col-md-12">
+							  <label class="col-md-4 control-label" for="TEL">聯絡電話</label>  
+							  <div class="col-md-8">
+							  <input id="TEL" name="TEL" type="text" placeholder="聯絡電話" class="form-control input-md">
+							  </div>
+							</div>
+							<div class="form-group col-md-12">
+							  <label class="col-md-4 control-label" for="addr">商店地址</label>  
+							  <div class="input-group col-md-8">
+							  <input id="addr" name="addr" type="text" placeholder="商店地址" class="form-control input-md"><span class="input-group-addon">轉換</span>
+							  </div>
+							</div>
+						 	
+							<div class="form-group col-md-12">
+							  <label class="col-md-4 control-label" for="LAT">經度</label>  
+							  <div class="col-md-8">
+							  <input id="LAT" name="LAT" type="text" placeholder="經度" class="form-control input-md">
+							  </div>
+							</div>
+						 	<div class="form-group col-md-12">
+							  <label class="col-md-4 control-label" for="LNG">緯度</label>  
+							  <div class="col-md-8">
+							  <input id="LNG" name="LNG" type="text" placeholder="緯度" class="form-control input-md">
+							  </div>
+							</div>
+						 	<div class="form-group col-md-12">
+							  <label class="col-md-4 control-label" for="MSG">訊息</label>  
+							  <div class="col-md-8">
+							  <input id="MSG" name="MSG" type="text" placeholder="訊息" class="form-control input-md">
+							  </div>
+							</div>							
+							</div>
+							<div class="form-group col-md-12">
+								<BUTTON > 送出</BUTTON>
+							</div>
+							</form>
+						 </div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+</section>
+
+
