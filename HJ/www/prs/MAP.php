@@ -19,29 +19,45 @@
 		//var_dump($rows);
 		$template->assign('SSRF',$rows);//Category('qatype',$mdb2));//下拉選單
 
-		//旅館 *還沒
+		//旅館 
 		//$query="SELECT sno,id,name,py,px,`Add` FROM od_ssrf where bus=0 and `Add` like '%新竹%'";
-			$MySql_query.=" select sno,F1 as id,`旅館名稱` as name,lng  ,lat ,`地址` as addr FROM od_scht"; 
-			$MySql_query.=" union select sno,`序號` as id,`旅館名稱` as name,`緯度` as lat,`經度` as lng,`營業地址` as addr FROM od_ssht "; 
+			$MySql_query.=" select sno,F1 as id,`旅館名稱` as name,lng  ,lat ,`地址` as addr FROM od_scht where bus=0 "; 
+			$MySql_query.=" union select sno,`序號` as id,`旅館名稱` as name,`緯度` as lat,`經度` as lng,`營業地址` as addr FROM od_ssht  where bus=0 "; 
 		//	echo $MySql_query;
 		$res=MDB2_query($mdb2 ,$MySql_query);
-		$rows=$res->fetchAll();
-		
+		$rows=$res->fetchAll();		
 		$template->assign('SSHF',$rows);//Category('qatype',$mdb2));//下拉選單
 
-
-		/*	
-	$query="SELECT sno,id,name,py,px FROM od_ssaf where bus=0 and `Add` like '%新竹%'";
+//站牌景點的排名			
+		$query="select a.n ,b.Zh_tw from (select count(id) as n , StopUIDs FROM od_sscf where StopUIDs in (SELECT DISTINCT StopUID FROM `od_bsstop` ) and `Add` like '%新竹%' group by StopUIDs ) as a 
+		left join od_bsstop as b on a.StopUIDs=b.StopUID order by a.n desc";
 		//echo "$query<br>";
 		$res=MDB2_query($mdb2 ,$query);
 		$rows=$res->fetchAll();
-		var_dump($rows);
-		$template->assign('SSAF',$rows);//Category('qatype',$mdb2));//下拉選單
-	*/	
+		//var_dump($rows);
+		$template->assign('SSST',$rows);//Category('qatype',$mdb2));//下拉選單
 		
+//站牌餐廳的排名		
+		$query="select a.n ,b.Zh_tw from (select count(id) as n , StopUIDs FROM od_ssrf where StopUIDs in (SELECT DISTINCT StopUID FROM `od_bsstop` ) and `Add` like '%新竹%' group by StopUIDs ) as a 
+		left join od_bsstop as b on a.StopUIDs=b.StopUID order by a.n desc";
+		//echo "$query<br>";
+		$res=MDB2_query($mdb2 ,$query);
+		$rows=$res->fetchAll();
+		//var_dump($rows);
+		$template->assign('SSSR',$rows);//Category('qatype',$mdb2));//下拉選單
 		
+/*//站牌景點的排名
+		$query="select a.n ,b.Zh_tw from (select count(id) as n , StopUIDs FROM od_sscf where StopUIDs in (SELECT DISTINCT StopUID FROM `od_bsstop` ) and `Add` like '%新竹%' group by StopUIDs ) as a 
+		left join od_bsstop as b on a.StopUIDs=b.StopUID order by a.n desc";
+		//echo "$query<br>";
+		$res=MDB2_query($mdb2 ,$query);
+		$rows=$res->fetchAll();
+		//var_dump($rows);
+		$template->assign('SSST',$rows);//Category('qatype',$mdb2));//下拉選單*/
+
 		
-		
+	/**/	
+	
 		//下拉選項
 		/*$template->assign('WEBTYPE',Category('webtype',$mdb2));//分類
 		$template->assign('WEBSTATE',Category('webstate',$mdb2));//分類
