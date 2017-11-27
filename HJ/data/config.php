@@ -1,38 +1,18 @@
 <?php
 //mysql
-/*define ('DB_HOST','mysql9.000webhost.com');
-define ('DB_USER','a7362782_m2016');
-define ('DB_PASS','!QAZ1qaz');
-define ('DB_NAME','a7362782_m2016');*/
-
 
 define ('DB_HOST','localhost');
 define ('DB_USER','root');
-//define ('DB_PASS','!QAZ1qaz');
-//define ('DB_PASS','Vac@lulala');
+
 define ('DB_NAME','HJ');
 switch (gethostname()){
-	case "Sking":
-		//define ('DB_USER','root');
-		define ('DB_PASS','!QAZ1qaz');		
-		define ('MAPKEY' ,"AIzaSyBBXHUUOD1cSwsHzXcCxNLwkLLVX0PHB8I");
-	break;
-	case "FFIT":
-		//define ('DB_USER','root');
-		define ('DB_PASS','Vac@lulala');		
-		define ('MAPKEY' ,"AIzaSyAAsffnUQ3lD6JHzKSy_Rq_qGp-BYa1qnM");
-	break;
+
 	default:
-		//define ('DB_USER','root');
-		define ('DB_PASS','Vac@lulala');		
-		define ('MAPKEY' ,"AIzaSyAAsffnUQ3lD6JHzKSy_Rq_qGp-BYa1qnM");
+		
+		define ('DB_PASS','xx');		
+		define ('MAPKEY' ,"key");
 	break;
 }
-
-
-
-
-
 
 
 //write to db

@@ -13,24 +13,19 @@ define ('TRCDATA' ,0);//使用者資料記錄
 define ('DFROM' ,'skingned6665@gmail.com');//寄件者信箱(顯示)
 define ('DNAME' ,'豐富科技');//寄件者(顯示)
 define ('SMTPDEBUG',0);//email debug
-define ('MACC' ,"skingned6665@gmail.com");//設定驗證帳號
-define ('MPWD' ,"Sking@ned");//設定驗證密碼
+define ('MACC' ,"skingned");//設定驗證帳號
+define ('MPWD' ,"Sking");//設定驗證密碼
 
 
 //*****************路徑****************************
 define ('APP_REAL_PATH' ,dirname(dirname(__FILE__)));//自動取得網站路徑
 //echo gethostname()."<br>";
 switch (gethostname()){
-	case "Sking":
-		define ('DB_USER','root');
-		define ('DB_PASS','!QAZ1qaz');		
-		define ('MAPKEY' ,"AIzaSyBBXHUUOD1cSwsHzXcCxNLwkLLVX0PHB8I");
-	break;
 
 	default:
 		define ('DB_USER','root');
-		define ('DB_PASS','Vac@lulala');		
-		define ('MAPKEY' ,"AIzaSyAAsffnUQ3lD6JHzKSy_Rq_qGp-BYa1qnM");
+		define ('DB_PASS','xx');		
+		define ('MAPKEY' ,"key");
 	break;
 }
 
